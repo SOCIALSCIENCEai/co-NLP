@@ -17,7 +17,6 @@ setup(
           'transformers[sentencepiece]',
           'scipy',
           'numpy',
-          'subprocess',
           're',
           'tqdm'
       ]

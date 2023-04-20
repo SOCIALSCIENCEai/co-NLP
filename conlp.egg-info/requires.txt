@@ -3,6 +3,4 @@ transformers
 transformers[sentencepiece]
 scipy
 numpy
-subprocess
-re
 tqdm

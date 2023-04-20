@@ -5,14 +5,13 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, Auto
 
 class download:
     def __init__(self, 
-                 models:str|list):
+                 models:str or list):
         """
         Downloads Huggingface Natural Language Processing Models in the local environment.  
 
         Args:
-            models (str or list): Target models to download. Available models include ['twitter_roBERTa_v1', 'twitter_roBERTa_v2', 'twitter_XLM_roBERTa', 'finBERT', \
-                'cnn_dailymail_BART', 'xsum_BART', 'cnn_dailymail_distilBART', 'xsum_distilBART','cnn_dailymail_PEGASUS', 'multi_news_PEGASUS', 'bloomberg_PEGASUS', \
-                'keyBERT', 'mnli_distilBART']
+            models (str or list): Target models to download. 
+            Available models include ['twitter_roBERTa_v1', 'twitter_roBERTa_v2', 'twitter_XLM_roBERTa', 'finBERT', 'cnn_dailymail_BART', 'xsum_BART', 'cnn_dailymail_distilBART', 'xsum_distilBART','cnn_dailymail_PEGASUS', 'multi_news_PEGASUS', 'bloomberg_PEGASUS', 'keyBERT', 'mnli_distilBART']
         """
         available_models = [#Sentiment Classification 
                             'twitter_roBERTa_v1', 'twitter_roBERTa_v2', 'twitter_XLM_roBERTa', 'finBERT', 
@@ -33,9 +32,9 @@ class download:
             if model in available_models: 
                 pass
             else: 
-                raise ValueError("""'models' includes input '{}', which is not supported. SUPPORTED MODELS: \
-                    (i) Sentiment Classification - 'twitter_roBERTa_v1', 'twitter_roBERTa_v2', 'twitter_XLM_roBERTa', 'FinBERT'; \
-                    (ii) Text Summarization - 'cnn_dailymail_BART', 'xsum_BART', 'cnn_dailymail_distilBART', 'xsum_distilBART', 'cnn_dailymail_PEGASUS', 'multi_news_PEGASUS', 'bloomberg_PEGASUS'; \
+                raise ValueError("""'models' includes input '{}', which is not supported. SUPPORTED MODELS:
+                    (i) Sentiment Classification - 'twitter_roBERTa_v1', 'twitter_roBERTa_v2', 'twitter_XLM_roBERTa', 'FinBERT'; 
+                    (ii) Text Summarization - 'cnn_dailymail_BART', 'xsum_BART', 'cnn_dailymail_distilBART', 'xsum_distilBART', 'cnn_dailymail_PEGASUS', 'multi_news_PEGASUS', 'bloomberg_PEGASUS'; 
                     (iii) Zero-Shot Classification & Keyword Extraction - 'keyBERT', 'mnli_distilBART'""".format(model))
         
         path = Path().resolve()

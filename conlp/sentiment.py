@@ -10,9 +10,8 @@ from conlp import preprocess
 
 class sentiment:     
     def __init__(self, 
-                 load_models:str|list): 
-        """_summary_
-
+                 load_models:str or list): 
+        """
         Args:
             load_models (str or list): Available models to be loaded. \n
                 Includes: 
@@ -68,7 +67,7 @@ class sentiment:
         if len(uninstalled) == 0: 
             pass
         else: 
-            raise FileNotFoundError("To load corresponding model(s), pre-install {} via nlp.download(models= {})".format(uninstalled, uninstalled))
+            raise FileNotFoundError("To load corresponding model(s), pre-install {} via conlp.download(models= {})".format(uninstalled, uninstalled))
         
         for model in tqdm(self.load_models, desc='Loading Model(s)'):
             # if model == 'alphaVADER': 
@@ -117,7 +116,7 @@ class sentiment:
     def twitter_roBERTa_v1(self, 
                            text:str, 
                            text_type:str, 
-                           summarize:bool=True) -> float|dict:
+                           summarize:bool=True) -> float or dict:
         """a roBERTa model trained on 58M tweets and finetuned for sentiment analysis with the TweetEval benchmark"""
         try: 
             if text_type.lower() == 'news': 
@@ -195,7 +194,7 @@ class sentiment:
     def twitter_roBERTa_v2(self, 
                            text:str, 
                            text_type:str, 
-                           summarize:bool=True) -> float|dict:
+                           summarize:bool=True) -> float or dict:
         try: 
             """a roBERTa model trained on 124M tweets and finetuned for sentiment analysis with the TweetEval benchmark"""
             if text_type.lower() == 'news': 
@@ -272,7 +271,7 @@ class sentiment:
     def twitter_XLM_roBERTa(self, 
                             text:str, 
                             text_type:str, 
-                            summarize:bool=True) -> float|dict:
+                            summarize:bool=True) -> float or dict:
         try: 
             """a XLM-roBERTa model trained on 198M tweets and finetuned for sentiment analysis with"""
             if text_type.lower() == 'news': 
@@ -350,7 +349,7 @@ class sentiment:
     def finBERT(self, 
                 text:str, 
                 text_type:str, 
-                summarize:bool=True) -> float|dict: 
+                summarize:bool=True) -> float or dict: 
         try: 
             """a BERT model trained on 400k financial texts, including TRC2-financial dataset, Financial PhraseBank, and FiQA Sentiment dataset"""
             if text_type.lower() == 'news': 
@@ -428,7 +427,7 @@ class sentiment:
     def aggregate(self, 
                   text:str, 
                   text_type:str, 
-                  summarize:bool=True) -> float|dict: 
+                  summarize:bool=True) -> float or dict: 
         try: 
             if summarize is True: 
                 # alphaVADER_c = self.alphaVADER(text, text_type=text_type)

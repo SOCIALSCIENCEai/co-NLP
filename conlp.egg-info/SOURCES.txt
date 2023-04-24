@@ -4,6 +4,7 @@ setup.cfg
 setup.py
 conlp/__init__.py
 conlp/download.py
+conlp/keyword.py
 conlp/preprocess.py
 conlp/sentiment.py
 conlp.egg-info/PKG-INFO
